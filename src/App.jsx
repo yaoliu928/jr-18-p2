@@ -4,13 +4,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 import AddCityForm from "./components/AddCityForm";
 import WeatherList from "./components/WeatherList";
 import Header from './components/Header';
-
-// import getWeatherData from './utils/axios';
-// import formatWeatherData from './utils/formatData';
-// import checkDuplicate from './utils/checkDuplicate';
 import weathersReducer from './reducers/weathers';
 import WeathersContext from './context/weathersContext';
 import './styles/index.scss';
+
 const App = () => {
 
   const [weathers, dispatch] = useReducer(weathersReducer, []);

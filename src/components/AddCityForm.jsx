@@ -5,6 +5,8 @@ import checkDuplicate from '../utils/checkDuplicate';
 import getWeatherData from '../utils/axios';
 import formatWeatherData from '../utils/formatData';
 
+let initial = true;
+
 const AddCityForm = ({ handleLoading }) => {
   const { weathers, dispatch } = useContext(WeathersContext);
   const [city, setCity] = useState('');
@@ -46,9 +48,11 @@ const AddCityForm = ({ handleLoading }) => {
   }
 
   useEffect(() => {
-    return () => {
-      addCityWeather('brisbane');
+    if (initial) {
+      initial = false;
+      return;
     }
+    addCityWeather('brisbane');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
